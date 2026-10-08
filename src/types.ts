@@ -32,6 +32,12 @@ declare global {
       // When unset, a deterministic per-day fallback is used. Set via
       // `wrangler secret put FP_SALT` in production for unpredictability.
       FP_SALT?: string;
+
+      // Optional. Where a signed-out visitor of the bare domain goes: when
+      // set, `/` answers a 302 to this URL instead of the landing page, so a
+      // short domain can lead to its owner's site. `wrangler secret put
+      // HOME_URL`, like the Access settings.
+      HOME_URL?: string;
     }
   }
 }

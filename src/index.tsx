@@ -599,6 +599,7 @@ app.route("/_/api", apiRouter);
 
 app.get("/", async (c) => {
   if (await isSignedIn(c.req.raw, c.env)) return c.redirect("/_/admin/dashboard", 302);
+  if (c.env.HOME_URL) return c.redirect(c.env.HOME_URL, 302);
   return landingResponse();
 });
 
