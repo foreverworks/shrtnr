@@ -21,6 +21,15 @@
   // (workers_dev is unset): a one-click deploy has no other URL. Set this to
   // true to preview branch builds from Workers Builds.
   "preview_urls": false,
+  // fvr.li (foreverworks fork): the Worker answers on fvr.li only. A second,
+  // unbranded workers.dev hostname would serve the same links and an admin
+  // surface no Access application covers.
+  "workers_dev": false,
+  // fvr.li/start/* stays more specific and reaches the guest-start Worker
+  // (foreverworks/shorturl); everything else on the zone is shrtnr.
+  "routes": [
+    { "pattern": "fvr.li/*", "zone_name": "fvr.li" }
+  ],
   "observability": {
     "logs": {
       "enabled": true,
