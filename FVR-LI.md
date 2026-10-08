@@ -15,6 +15,14 @@ The fork changes as little as it can, so an upstream release merges cleanly.
 The D1 database and KV namespace carry no ids here, as upstream intends: a deploy inherits the
 bindings of the Worker already deployed.
 
+## Admin and MCP
+
+- **Admin:** `https://fvr.li/_/admin`, behind a Cloudflare Access application on `fvr.li/_/admin`.
+- **MCP:** `https://mcp.fvr.li` (Streamable HTTP), behind a second Access application with Managed
+  OAuth and dynamic client registration. In claude.ai: Settings, Connectors, Add custom connector,
+  URL `https://mcp.fvr.li`. In Claude Code: `claude mcp add --transport http fvr-li https://mcp.fvr.li`.
+- Both admit the emails in their Access policy; links belong to the email that created them.
+
 ## Sharing the zone
 
 A second Worker, `guest-start` from `foreverworks/shorturl`, owns `fvr.li/start/*`. Cloudflare

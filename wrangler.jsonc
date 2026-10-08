@@ -26,9 +26,12 @@
   // surface no Access application covers.
   "workers_dev": false,
   // fvr.li/start/* stays more specific and reaches the guest-start Worker
-  // (foreverworks/shorturl); everything else on the zone is shrtnr.
+  // (foreverworks/shorturl); everything else on the zone is shrtnr. The MCP
+  // endpoint needs a host of its own: an Access application with Managed
+  // OAuth cannot be scoped to a path (docs/mcp.md).
   "routes": [
-    { "pattern": "fvr.li/*", "zone_name": "fvr.li" }
+    { "pattern": "fvr.li/*", "zone_name": "fvr.li" },
+    { "pattern": "mcp.fvr.li", "custom_domain": true }
   ],
   "observability": {
     "logs": {
