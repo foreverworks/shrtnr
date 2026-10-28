@@ -25,10 +25,8 @@ bindings of the Worker already deployed.
 
 ## Sharing the zone
 
-Two more Workers from `foreverworks/shorturl` own more specific routes: `guest-start` on
-`fvr.li/start/*`, and `revelion-links` on `fvr.li/rev` and `fvr.li/rev/*` (one redirect rule for a
-party app's guest pages). Cloudflare picks the most specific route, so this Worker serves everything
-else on the zone. A slug that starts with `rev/` or `start/` would never be reached.
+A second Worker, `guest-start` from `foreverworks/shorturl`, owns `fvr.li/start/*`. Cloudflare
+picks the most specific route, so this Worker serves everything else on the zone.
 
 ## Rules for links on fvr.li
 
